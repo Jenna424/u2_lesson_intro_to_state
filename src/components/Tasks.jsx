@@ -6,7 +6,8 @@ const Tasks = (props) => {
     <ul>
       {props.tasks.map((task, index) => (
         <li key={index}>
-          {task} 
+          {task}
+          <button onClick={() => props.removeTask(index)}>x</button>
         </li>
       ))}
     </ul>

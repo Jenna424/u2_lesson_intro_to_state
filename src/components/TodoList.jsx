@@ -21,6 +21,13 @@ const TodoList = () => {
     setInputValue('')
   }
 
+  const removeTask = (index) => {
+    let taskList = [...tasks]
+    // .splice takes in index number and number of items to remove
+    taskList.splice(index, 1)
+    setTasks(taskList)
+  }
+
   const handleChange = (event) => {
     setInputValue(event.target.value)
   }
@@ -28,7 +35,7 @@ const TodoList = () => {
   return (
     <div className="list">
       <Input handleChange={handleChange} addTask={addTask} value={inputValue} />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} removeTask={removeTask} />
     </div>
   )
 }
